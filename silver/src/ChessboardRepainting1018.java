@@ -26,8 +26,8 @@ public class ChessboardRepainting1018 {
         return BlackandWhite;
     }
 
-    public HashSet<Integer> getSet(int M, int N, char[][] BlackandWhite){
-        HashSet<Integer> RepaintNums = new HashSet<>();
+    public int getResult(int M, int N, char[][] BlackandWhite){
+        int result = Integer.MAX_VALUE;
 
         for(int i =0; i<M-7; i++){
             for(int j=0; j<N-7; j++){
@@ -53,10 +53,10 @@ public class ChessboardRepainting1018 {
                     }
                 }
                 int repaint = Math.min(repaint1,repaint2);
-                RepaintNums.add(repaint);
+                result = Math.min(repaint, result);
             }
         }
-        return RepaintNums;
+        return result;
     }
 
     public static void main(String[]args) throws Exception {
@@ -68,8 +68,8 @@ public class ChessboardRepainting1018 {
         int N = MN[1];
 
         char[][] BlackandWhite = ChessboardRepainting.getBoard(br, M,N);
-        HashSet<Integer> RepaintNums = ChessboardRepainting.getSet(M,N,BlackandWhite);
+        int result = ChessboardRepainting.getResult(M,N,BlackandWhite);
 
-        System.out.print(Collections.min(RepaintNums));
+        System.out.print(result);
     }
 }
