@@ -7,7 +7,7 @@ public class Numbercard10816 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         Numbercard10816 Numbercard = new Numbercard10816();
-
+        //가지고 있는 숫자 카드 개수 = N
         String N = br.readLine();
         int n = Integer.parseInt(N);
 
@@ -15,7 +15,7 @@ public class Numbercard10816 {
         StringTokenizer st = new StringTokenizer(Sangcard);
 
         Map<Integer,Integer> SangCards = Numbercard.getMap(st, n);
-
+        //상근이가 가지고 있는 숫자 카드인지 구해야 할 M의 정수
         String M = br.readLine();
         int m = Integer.parseInt(M);
         String card = br.readLine();
