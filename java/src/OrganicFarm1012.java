@@ -26,6 +26,7 @@ public class OrganicFarm1012 {
             for(int j = 0; j < N; j++){
                 for(int k = 0; k < M; k++){
                     if(farm[j][k] == true){
+                        //한개의 배추지렁이가 보호하는 위치들
                         OraganicFarm.visit(N, M, j,k,farm);
                         count++;
                     }
