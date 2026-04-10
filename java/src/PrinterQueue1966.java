@@ -46,24 +46,24 @@ public class PrinterQueue1966 {
                     importantArr.add(importance);
                     printer.addFirst(Doc);
                 }
-              }
-              Collections.sort(importantArr);
+            }
+            Collections.sort(importantArr);
               //중요도 높은게 맨뒤에 있도록 정렬
-              int order = 0;
-              while(!printer.isEmpty()) {
-                  Document PickDoc = printer.pollLast();
+            int order = 0;
+            while(!printer.isEmpty()) {
+                Document PickDoc = printer.pollLast();
                   // 현재 프린터에 더 중요도가 높은 문서가 있는 경우
-                  if(PickDoc.importance < importantArr.get(importantArr.size() - 1)) {
-                      printer.addFirst(PickDoc);
-                  }
-                  else {
-                      importantArr.remove(importantArr.size() - 1);
-                      order++;
-                      if(PickDoc.isWonder) {
-                          sb.append(order);
-                          sb.append("\n");
-                      }
-                  }
+                if(PickDoc.importance < importantArr.get(importantArr.size() - 1)) {
+                    printer.addFirst(PickDoc);
+                }
+                else {
+                    importantArr.remove(importantArr.size() - 1);
+                    order++;
+                    if(PickDoc.isWonder) {
+                        sb.append(order);
+                        sb.append("\n");
+                    }
+                }
             }
             
         }
