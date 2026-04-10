@@ -8,11 +8,11 @@ import java.util.Deque;
 import java.util.StringTokenizer;
 
 class Document {
-    int importance;
+    int important;
     boolean isWonder;
 
-    public Document(int importance, boolean isWonder){
-        this.importance = importance;
+    public Document(int important, boolean isWonder){
+        this.important = important;
         this.isWonder = isWonder;
     }
 }
@@ -34,16 +34,16 @@ public class PrinterQueue1966 {
             StringTokenizer st2 = new StringTokenizer(br.readLine()," ");
             
             for(int j = 0; j < documentNum; j++) {
-                int importance = Integer.parseInt(st2.nextToken());
+                int important = Integer.parseInt(st2.nextToken());
                 if (j == wonderDocument) {
-                    Document Doc = new Document(importance, true);
-                    importantArr.add(importance);
+                    Document Doc = new Document(important, true);
+                    importantArr.add(important);
                     //문서들 큐의 앞부분에 저장함 -> 그럼 뺄땐 뒤에서부터 빼야함
                     printer.addFirst(Doc);
                 }
                 else {
-                    Document Doc = new Document(importance, false);
-                    importantArr.add(importance);
+                    Document Doc = new Document(important, false);
+                    importantArr.add(important);
                     printer.addFirst(Doc);
                 }
             }
@@ -53,7 +53,7 @@ public class PrinterQueue1966 {
             while(!printer.isEmpty()) {
                 Document PickDoc = printer.pollLast();
                   // 현재 프린터에 더 중요도가 높은 문서가 있는 경우
-                if(PickDoc.importance < importantArr.get(importantArr.size() - 1)) {
+                if(PickDoc.important < importantArr.get(importantArr.size() - 1)) {
                     printer.addFirst(PickDoc);
                 }
                 else {
